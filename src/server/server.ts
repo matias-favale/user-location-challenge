@@ -1,5 +1,4 @@
 import express from 'express';
-import { Pool } from 'pg';
 import {DataSource} from "typeorm";
 import {UserLocation} from "./user-location";
 
@@ -10,8 +9,8 @@ const datasource = new DataSource({
     type: 'postgres',
     host: 'localhost',
     port: 5432,
-    username: 'sa',
-    password: 'sa',
+    username: 'postgres',
+    password: '',
     database: 'user_location',
     entities: [UserLocation],
     synchronize: true
