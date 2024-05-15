@@ -4,9 +4,9 @@
   "description": "A simple challenge that registers the user location.",
   "private": true,
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "build": "tsc"
+    "build": "tsc -b"
   },
   "author": "matias-favale",
   "license": "MIT",
