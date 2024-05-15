@@ -1,15 +1,29 @@
 import express from 'express';
 import { Pool } from 'pg';
+import {DataSource} from "typeorm";
+import {UserLocation} from "./user-location";
 
 const app = express();
 const port = 3000;
 
-const pool = new Pool({
-    user: "sa",
-    host: "localhost",
-    database: "user_location",
-    port: 5432
+const datasource = new DataSource({
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'sa',
+    password: 'sa',
+    database: 'user_location',
+    entities: [UserLocation],
+    synchronize: true
 })
+
+datasource.initialize()
+    .then(() => {
+        console.log("Data source has been initialized.")
+    })
+    .catch((err) => {
+        console.error("Error initializing datasource", err)
+    })
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}.`);
