@@ -20,8 +20,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "strictPropertyInitialization": false,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["./src/*", "./dist/*"]
+    }
   },
   "include": ["src"],
+  "exclude": ["src/server"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

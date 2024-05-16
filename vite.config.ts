@@ -7,7 +7,7 @@ import path from "path";
 export default defineConfig({
     plugins: [react(), svgr()],
     server: {
-        port: 3000,
+        port: 8080,
     },
     resolve: {
         alias: {
