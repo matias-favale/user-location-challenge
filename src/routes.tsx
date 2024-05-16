@@ -11,7 +11,8 @@ export const router = createBrowserRouter([
             element: (
                 <Suspense fallback = {<PageLoading/>}>
                     <RequireAuth/>
-                </Suspense>),
+                </Suspense>
+            ),
             errorElement: <ErrorElement/>,
         }
 ])
