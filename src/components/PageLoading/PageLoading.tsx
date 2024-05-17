@@ -1,8 +1,9 @@
+import Spinner from "@/components/Spinner/Spinner.tsx";
 
 const PageLoading = () => {
     return (
-        <div>
-            Loading ...
+        <div className="w-1/2">
+            <Spinner/>
         </div>
     )
 }
