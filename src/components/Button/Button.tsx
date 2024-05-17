@@ -1,6 +1,8 @@
-import React, { RefObject, forwardRef } from 'react'
+import React, {forwardRef, RefObject} from 'react'
 
-import LoadingSpinner from '@/assets/icons/tube-spinner.svg?react'
+import classnames from 'classnames'
+import Spinner from "@/components/Spinner/Spinner.tsx";
+
 
 interface Props extends React.ComponentPropsWithoutRef<'button'> {
     children: React.ReactNode
@@ -9,18 +11,18 @@ interface Props extends React.ComponentPropsWithoutRef<'button'> {
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
     (props: Props, ref) => {
-        const { className, children, disabled, isLoading, ...rest } = props
+        const {className, children, disabled, isLoading, ...rest} = props
 
         return (
             <button
                 type="button"
-                className={className}
+                className={classnames('bg-green-700 py-2 transition duration-500 px-4 text-white rounded-lg hover:bg-green-800 disabled:bg-gray-200 disabled:text-gray-400 focus:ring-4 focus:ring-green-light focus:outline-green-800', className)}
                 disabled={disabled || isLoading}
                 ref={ref as RefObject<HTMLButtonElement>}
                 {...rest}
             >
                 {isLoading ? (
-                    <LoadingSpinner className="inline-block h-5" />
+                    <Spinner/>
                 ) : (
                     children
                 )}
