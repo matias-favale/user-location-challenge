@@ -88,13 +88,21 @@ datasource.initialize()
         logError("Error initializing datasource", err)
     })
 
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:8080',
+    credentials: true
+}))
 
 // Get session middleware
 app.use(session({
     secret: '1234567890',
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: false,
+        httpOnly: true,
+        maxAge: 1000*60*60,
+    }
 }))
 
 app.use(express.json())
@@ -158,7 +166,7 @@ app.post('/register', async (req, res) => {
     try {
         const userData = await userLocationRepository.save(newUser)
         log(`User ${userData.username} registered successfully.`)
-        res.json(userData)
+        res.status(201).json(userData)
     } catch (error) {
         logError("Error creating user", error)
         res.status(500).json()
