@@ -15,8 +15,10 @@
   "author": "matias-favale",
   "license": "MIT",
   "dependencies": {
+    "@tanstack/react-query": "^5.36.2",
     "axios": "^1.6.8",
     "classnames": "^2.5.1",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "formik": "^2.4.6",
@@ -28,6 +30,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/express-session": "^1.18.0",
     "@types/node": "20.12.12",
